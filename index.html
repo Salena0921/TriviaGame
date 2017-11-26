@@ -17,9 +17,9 @@
         </div>
     </nav>
     <div class="jumbotron startpage">
-            <h1>Hogwarts</h1>
-            <h2>Will you graduate?</h2>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Start</a></p>
+            <h1 id="title">Hogwarts</h1>
+            <h2 id="tagline">Will you graduate?</h2>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button" id="startb">Start</a></p>
           </div>
     <div class="container questions">
         <div class="row">
@@ -60,14 +60,19 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <h4>Correct Answer</h4>
+                <h4>Correct Answer: <span id="correct">0</span></h4>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <h4>Incorrect Answer</h4>
+                    <h4>Incorrect Answer: <span id="wrong">0</span></h4>
             </div>
         </div>
+        <div class="row">
+                <div class="col-xs-12">
+                        <h4>Time: <span id="time"></span></h4>
+                </div>
+            </div>
     </div>
     <script src="assets/javascript/app.js"></script>
 </body>

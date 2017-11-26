@@ -1,10 +1,30 @@
+/*Start Game Container*/
+.startpage{
+    position: absolute;
+    left: 450px;
+    bottom: 250px; 
+    float: middle;    
+    width: 900px;
+    height: 500px;
+}
+
+#title,
+#tagline{
+    text-align: center; 
+}
+
 /*Question Container*/
 .questions{
-    float: middle;
-    width: 700px;
+    position: absolute;
+    left: 450px;
+    bottom: 250px; 
+    float: middle;    
+    width: 900px;
+    height: 500px;
 }
 /*Points Container*/
-.points{
+.points{    
     float: right;
     width: 450px;
+    
 }
