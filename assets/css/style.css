@@ -1,0 +1,10 @@
+/*Question Container*/
+.questions{
+    float: middle;
+    width: 700px;
+}
+/*Points Container*/
+.points{
+    float: right;
+    width: 450px;
+}
