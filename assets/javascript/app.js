@@ -13,26 +13,26 @@ var bank = [{
 
 var timeClock = false;
 var time = 31
+var correctAnswer = 0;
+var wrongAnswer = 0;
 
 //When page loads//
 $(document).ready(function () {
     $(".questions").hide();
-    var correctAnswer = 0;
-    var wrongAnswer = 0;
+    correctAnswer = 0;
+    wrongAnswer = 0;
 
     $("#correct").text(correctAnswer);
-    $("#wrong").text(wrongAnswer);    
-    $("#startb").click(function (){
-        //When Question is displayed//        
+    $("#wrong").text(wrongAnswer);
+    $("#startb").click(function () {
+        //When Question is displayed timer starts//        
         $(".startpage").hide();
         $(".questions").show();
-        if(!timeClock){             
+        if (!timeClock) {
             intervalTime = setInterval(decrement, 1000);
-            timeClock = true;            
+            timeClock = true;
             console.log(timeClock);
-
         }
-        
     });
 });
 
@@ -43,18 +43,32 @@ $(".questions").each(function play() {
     document.getElementById("answer1").innerHTML = randomQuestion.possibleAnswers[0];
     document.getElementById("answer2").innerHTML = randomQuestion.possibleAnswers[1];
     document.getElementById("answer3").innerHTML = randomQuestion.possibleAnswers[2];
+    // $(".answers").click();  
     console.log(bank);
     console.log(randomQuestion);
     
 });
 
-
-
+$(".answers").click(function answer() {    
+    for (var i = 0; i < randomQuestion.possibleAnswers.length; i++) {
+        var userGuess = randomQuestion.possibleAnswers[i];
+        console.log(userGuess)
+        //Is the question worng or right//    
+        if (userGuess === randomQuestion.answer) {
+            //Logging points//
+            correctAnswer++;
+            console.log("yes");
+            $("#correct").text(correctAnswer);
+        } else if (time === 0 || userGuess !== randomQuestion.answer) {
+            wrongAnswer++;
+            $("#wrong").text(wrongAnswer);
+            console.log("yes1");
+            decrement();            
+        };
+    };
+});
 //timer//
 function decrement() {
     time--;
     $("#time").html(time)
 };
-
-//Is the question worng or right//
-//Logging points//
