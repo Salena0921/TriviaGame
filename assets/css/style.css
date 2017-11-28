@@ -13,6 +13,22 @@
     text-align: center; 
 }
 
+#startb{
+    position: relative;
+    left: 350px;
+    top: 125px;
+    float: middle;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+#tagline{
+    position: relative;
+    top: 50px;
+}
+
 /*Question Container*/
 .questions{
     position: absolute;
@@ -20,7 +36,43 @@
     bottom: 250px; 
     float: middle;    
     width: 900px;
-    height: 500px;
+    height: 500px;    
+}
+
+.answers{
+    position: relative;
+    margin: 10px;
+    width: 300px;
+    height: 75px;
+    font-size: 20px;
+}
+
+#question{
+    font-size: 40px;
+}
+
+#answer1{
+    background-color: rgb(8, 80, 8);
+    color: silver;
+    border-color: silver;
+}
+
+#answer2{
+    background-color: blue;
+    color: rgb(205, 127, 50);
+    border-color: rgb(205, 127, 50);
+}
+
+#answer3{
+    background-color: yellow;
+    color: black;
+    border-color: black;
+}
+
+#answer4{
+    background-color: red;
+    color: gold;
+    border-color: gold;
 }
 /*Points Container*/
 .points{    

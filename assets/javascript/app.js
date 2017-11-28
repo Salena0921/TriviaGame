@@ -1,12 +1,12 @@
 //Question Variables//
 var bank = [{
         question: "What is the correct address of the Dursleys?",
-        possibleAnswers: ["4 Private Drive", "4 Privet Drive", "14 Prime Drive"],
+        possibleAnswers: ["4 Private Drive", "4 Privet Drive", "14 Prime Drive", "40 Privet Drive"],
         answer: "4 Privet Drive"
     },
     {
         question: "Where is the names of Harry's aunt, uncle, and cousin?",
-        possibleAnswers: ["Patricia,Vernon, Dursely", "Petunia, Vernon, Dudley", "Patty, Victor, Daniel"],
+        possibleAnswers: ["Patricia,Vernon, Dursely", "Petunia, Vernon, Dudley", "Patty, Victor, Daniel", "Petunia, Vernon, David"],
         answer: "Petunia, Vernon, Dudley"
     }
 ];
@@ -44,6 +44,7 @@ $(".questions").each(function play() {
     document.getElementById("answer1").innerHTML = randomQuestion.possibleAnswers[0];
     document.getElementById("answer2").innerHTML = randomQuestion.possibleAnswers[1];
     document.getElementById("answer3").innerHTML = randomQuestion.possibleAnswers[2];
+    document.getElementById("answer4").innerHTML = randomQuestion.possibleAnswers[3];
     
     console.log(bank);
     console.log(randomQuestion);
@@ -88,32 +89,22 @@ function answer() {
     //         $("#wrong").text(wrongAnswer);
     //     }
     // });
+    // $("#answer4").click(function () {
+    //     console.log(randomQuestion.possibleAnswers[3]);
+    //     if(randomQuestion.possibleAnswers[3] === randomQuestion.answer){
+    //         console.log("win");
+    //         correctAnswer++;  
+    //         $("#correct").text(correctAnswer);        
+    //     }else{
+    //         console.log("lose");
+    //         wrongAnswer++;
+    //         $("#wrong").text(wrongAnswer);
+    //     }
+    // });
     decrement();
 };
 
-// function answer() {   
-//       $(this).attr("click") = randomQuestion.possibleAnswers;      
-//       console.log("yes");
-// // for (var i = 0; i < randomQuestion.possibleAnswers.length; i++) {
 
-// //     var userGuess = $(".answers").click();
-// //     console.log(userGuess)    
-//     // Is the question wrong or right//    
-//     // if (userGuess === randomQuestion.answer) {
-//     //     //Logging points//
-//     //     console.log(randomQuestion.answer)
-//     //     correctAnswer++;
-//     //     console.log("yes");
-//     //     $("#correct").text(correctAnswer);
-//     // } else{            
-//     //     wrongAnswer++;            
-//     //     $("#wrong").text(wrongAnswer);
-//     //     console.log("yes1");
-//     //     decrement();            
-//     // };
-// };
-
-// };
 //timer//
 function decrement() {
     time--;
@@ -121,6 +112,6 @@ function decrement() {
     if(time === 0){
         wrongAnswer++;
         $("#wrong").text(wrongAnswer);
+        clearInterval(intervalTime);        
     }
-
 };
