@@ -1,3 +1,9 @@
+/*General*/
+body{
+    background-image: url("../images/hogwartscrest.jpg");    
+}
+
+
 /*Start Game Container*/
 .startpage{
     position: absolute;
@@ -31,6 +37,8 @@
 
 /*Question Container*/
 .questions{
+    background-image: url("../images/hogwartscastle.jpg");
+    background-size: 100%;
     position: absolute;
     left: 450px;
     bottom: 250px; 
@@ -40,7 +48,7 @@
 }
 
 .answers{
-    position: relative;
+    position: absolute;
     margin: 10px;
     width: 300px;
     height: 75px;
@@ -49,27 +57,40 @@
 
 #question{
     font-size: 40px;
+    color: black;
 }
 
-#answer1{
+#answer1{       
+    float: left;
+    left: 20px;
+    top: 10px; 
     background-color: rgb(8, 80, 8);
     color: silver;
     border-color: silver;
 }
 
-#answer2{
+#answer2{    
+    float: right;
+    right: 20px;
+    top: 10px;   
     background-color: blue;
     color: rgb(205, 127, 50);
     border-color: rgb(205, 127, 50);
 }
 
-#answer3{
+#answer3{    
+    float: left;
+    left: 20px;
+    top: 200px;
     background-color: yellow;
     color: black;
     border-color: black;
 }
 
-#answer4{
+#answer4{    
+    float: right;
+    right: 20px;
+    top: 200px;
     background-color: red;
     color: gold;
     border-color: gold;
@@ -77,6 +98,10 @@
 /*Points Container*/
 .points{    
     float: right;
-    width: 450px;
-    
+    position: relative;
+    right: 20px;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+    background-color: white;    
 }
