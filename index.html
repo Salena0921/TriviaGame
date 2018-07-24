@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en-us">
 
 <head>
-    <title>Hogwarts</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Harry Potter Trivia</title>
+
+    <!-- CSS Reset Sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+
+    <!-- My CSS code -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Bootstrap styling-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class="panel panel-default panelstart" id="hogwartshouse">
+        <div class="panel-body">
+            <h1 id="houseselector">SELECT YOUR HOUSE</h1>
+            <p id="jumbop2start">
+                <button class="houses" id="slytherinpick">SLYTHERIN</button>
+                <button class="houses" id="hufflepuffpick">HUFFLEPUFF</button>
+                <button class="houses" id="gryffindorpick">GRYFFINDOR</button>
+                <button class="houses" id="ravenclawpick">RAVENCLAW</button>
+            </p>
+        </div>
+    </div>
+
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -33,25 +57,25 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <button class="answers" id="answer1">                
+                <button class="answers" id="answer1">
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <button class="answers" id="answer2">                
+                <button class="answers" id="answer2">
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <button class="answers" id="answer3">                
+                <button class="answers" id="answer3">
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <button class="answers" id="answer4">                    
+                <button class="answers" id="answer4">
                 </button>
             </div>
         </div>
@@ -86,7 +110,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Script -->
     <script src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>

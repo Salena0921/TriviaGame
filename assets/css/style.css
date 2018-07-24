@@ -3,6 +3,72 @@ body{
     background-image: url("../images/hogwartscrest.jpg");    
 }
 
+/*Hogwarts House Panel*/
+#hogwartshouse{
+    width: 800px;
+    height: 400px;
+}
+
+#houseselector{
+    color:rgb(139, 18, 18);
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;   
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#slytherinpick{
+    background-color: rgb(26, 75, 26);
+    color: 	#C0C0C0;
+    font-family: 'Almendra SC', serif;
+    font-size: 40px;   
+    border-color: #C0C0C0;
+    margin: 12px;
+    width: 275px;
+    height: 75px;    
+}
+
+#ravenclawpick{
+    background-color: rgb(3, 3, 160);
+    color: rgb(196, 121, 51);
+    font-family: 'Petit Formal Script', cursive;    
+    font-size: 30px;   
+    border-color: rgb(196, 121, 51);
+    margin: 12px;
+    float: left;    
+    position: relative;
+    top: 75px;
+    width: 277px;
+    height: 80px;    
+}
+
+#hufflepuffpick{
+    background-color: yellow;
+    color: black;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 35px;
+    border-color: black;
+    float: right; 
+    position: relative;
+    right: 10px;
+    top: 10px;   
+    width: 275px;
+    height: 77px;
+}
+
+#gryffindorpick{
+    background-color: rgb(87, 4, 4);
+    color: gold;
+    font-family: 'New Rocker', cursive;
+    font-size: 35px;
+    border-color: gold;
+    float: right;
+    position: relative;
+    right: 10px;
+    top: 87px;
+    width: 275px;
+    height: 75px;         
+}
 
 /*Start Game Container*/
 .startpage{

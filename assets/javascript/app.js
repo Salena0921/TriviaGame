@@ -17,7 +17,7 @@ var bank = [{
     {
         question: "Why does Uncle Vernon love Sundays?",
         possibleAnswers: ["Its the only day he can relax.", "Its the day he and his family(minus Harry) get to go out for tea.", "There is no mail.", "Harry goes to the neighbor's house to do chores."],
-        answer:  "There is no mail."
+        answer: "There is no mail."
     },
     {
         question: "When is Harry's birthday and how old is he when he starts Hogwarts?",
@@ -38,7 +38,7 @@ var bank = [{
         question: "What type of owl is Hedwig?",
         possibleAnswers: ["Horned Owl", "Barn-owl", "Snowy Owl", "Eurasian eagle-owl"],
         answer: "Snowy Owl"
-    },    
+    },
     {
         question: "What is the name of the train station and platform number do Hogwarts students use?",
         possibleAnswers: ["Hogsmeade Station, 9 3/4", "King's Cross Station, 9 3/4", "London Station, 9 3/4", "King's Cross Station, 9 1/4"],
@@ -58,7 +58,7 @@ var correctAnswer = 0;
 var wrongAnswer = 0;
 
 //When page loads//
-$(document).ready(function () {
+$(document).ready(function beginning() {
     $(".questions").hide();
     correctAnswer = 0;
     wrongAnswer = 0;
@@ -157,9 +157,9 @@ function answer() {
         }
 
     });
-
-    decrement();
     winOrLose();
+    decrement();
+    
 };
 
 
@@ -203,11 +203,13 @@ function reset() {
 
 };
 
-function winOrLose(){
-if( correctAnswer === 7){
-    alert("Year 1 complete");
-}else if(wrongAnswer === 3){
-    alert("Sorry Muggle")
-}
+function winOrLose() {
+    if (correctAnswer === 7) {
+        alert("Year 1 complete");
+        
+    } else if (wrongAnswer === 3) {
+        alert("Sorry Muggle");
+        
+    }
 
 };
