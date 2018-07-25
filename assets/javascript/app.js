@@ -1,215 +1,191 @@
+var panel = $("#quiz-area");
+var countStartNumber = 20;
+
 //Question Variables//
-var bank = [{
-        question: "What is the correct address of the Dursleys?",
-        possibleAnswers: ["4 Private Drive", "4 Privet Drive", "14 Prime Drive", "40 Privet Drive"],
-        answer: "4 Privet Drive"
-    },
-    {
-        question: "What are the names of Harry's aunt, uncle, and cousin?",
-        possibleAnswers: ["Patricia,Vernon, Dursely", "Petunia, Vernon, Dudley", "Patty, Victor, Daniel", "Petunia, Vernon, David"],
-        answer: "Petunia, Vernon, Dudley"
-    },
-    {
-        question: "What does Harry accidentally set loose at the zoo?",
-        possibleAnswers: ["Bear", "Lion", "Elephant", "Snake"],
-        answer: "Snake"
-    },
-    {
-        question: "Why does Uncle Vernon love Sundays?",
-        possibleAnswers: ["Its the only day he can relax.", "Its the day he and his family(minus Harry) get to go out for tea.", "There is no mail.", "Harry goes to the neighbor's house to do chores."],
-        answer: "There is no mail."
-    },
-    {
-        question: "When is Harry's birthday and how old is he when he starts Hogwarts?",
-        possibleAnswers: ["July 31, 11", "July 30, 11", "July 31, 10", "July 30, 10"],
-        answer: "Petunia, Vernon, Dudley"
-    },
-    {
-        question: "What is the name of the pub Harry goes to with Hagrid in London?",
-        possibleAnswers: ["Hog's Head Inn", "Three Broomsticks Inn", "Potions, Potions, Potions", "Leaky Cauldron"],
-        answer: "Leaky Cauldron"
-    },
-    {
-        question: "Where does Harry Potter first meet Draco Malfoy?",
-        possibleAnswers: ["Madam Malkin's", "Hogwarts", "Hogwarts Express", "Leaky Cauldron"],
-        answer: "Madam Malkin's"
-    },
-    {
-        question: "What type of owl is Hedwig?",
-        possibleAnswers: ["Horned Owl", "Barn-owl", "Snowy Owl", "Eurasian eagle-owl"],
-        answer: "Snowy Owl"
-    },
-    {
-        question: "What is the name of the train station and platform number do Hogwarts students use?",
-        possibleAnswers: ["Hogsmeade Station, 9 3/4", "King's Cross Station, 9 3/4", "London Station, 9 3/4", "King's Cross Station, 9 1/4"],
-        answer: "Petunia, Vernon, Dudley"
-    },
-    {
-        question: "What has Neville Longbottom lost on the train?",
-        possibleAnswers: ["His wand", "A rat", "A toad", "His robe"],
-        answer: "A toad"
-    },
+var questions = [{
+    question: "What is the correct address of the Dursleys?",
+    answers: ["4 Private Drive", "4 Privet Drive", "14 Prime Drive", "40 Privet Drive"],
+    correctAnswer: "4 Privet Drive"
+  },
+  {
+    question: "What are the names of Harry's aunt, uncle, and cousin?",
+    answers: ["Patricia,Vernon, Dursely", "Petunia, Vernon, Dudley", "Patty, Victor, Daniel", "Petunia, Vernon, David"],
+    correctAnswer: "Petunia, Vernon, Dudley"
+  },
+  {
+    question: "What does Harry accidentally set loose at the zoo?",
+    answers: ["Bear", "Lion", "Elephant", "Snake"],
+    correctAnswer: "Snake"
+  },
+  {
+    question: "Why does Uncle Vernon love Sundays?",
+    answers: ["Its the only day he can relax.", "Its the day he and his family(minus Harry) get to go out for tea.", "There is no mail.", "Harry goes to the neighbor's house to do chores."],
+    correctAnswer: "There is no mail."
+  },
+  {
+    question: "When is Harry's birthday and how old is he when he starts Hogwarts?",
+    answers: ["July 31, 11", "July 30, 11", "July 31, 10", "July 30, 10"],
+    correctAnswer: "July 31, 11"
+  },
+  {
+    question: "What is the name of the pub Harry goes to with Hagrid in London?",
+    answers: ["Hog's Head Inn", "Three Broomsticks Inn", "Potions, Potions, Potions", "Leaky Cauldron"],
+    correctAnswer: "Leaky Cauldron"
+  },
+  {
+    question: "Where does Harry Potter first meet Draco Malfoy?",
+    answers: ["Madam Malkins", "Hogwarts", "Hogwarts Express", "Leaky Cauldron"],
+    correctAnswer: "Madam Malkins"    
+  },
+  {
+    question: "What type of owl is Hedwig?",
+    answers: ["Horned Owl", "Barn-owl", "Snowy Owl", "Eurasian eagle-owl"],
+    correctAnswer: "Snowy Owl"
+  },
+  {
+    question: "What is the name of the train station and platform number do Hogwarts students use?",
+    answers: ["Hogsmeade Station, 9 3/4", "King's Cross Station, 9 3/4", "London Station, 9 3/4", "King's Cross Station, 9 1/4"],
+    correctAnswer: "King's Cross Station, 9 3/4"
+  },
+  {
+    question: "What has Neville Longbottom lost on the train?",
+    answers: ["His wand", "A rat", "A toad", "His robe"],
+    correctAnswer: "A toad"
+  },
 
 ];
 
-var timeClock = false;
-var time = 16;
-var correctAnswer = 0;
-var wrongAnswer = 0;
+// Variable to hold our setInterval
+var timer;
 
-//When page loads//
-$(document).ready(function beginning() {
-    $(".questions").hide();
-    correctAnswer = 0;
-    wrongAnswer = 0;
+var game = {
 
-    $("#correct").text(correctAnswer);
-    $("#wrong").text(wrongAnswer);
-    $("#startb").click(function () {
-        //When Question is displayed timer starts//        
-        $(".startpage").hide();
-        $(".questions").show();
-        if (!timeClock) {
-            intervalTime = setInterval(decrement, 1000);
-            timeClock = true;
-            console.log(timeClock);
-        }
-    });
+  questions: questions,
+  currentQuestion: 0,
+  counter: countStartNumber,
+  correct: 0,
+  incorrect: 0,
+  
+  countdown: function () {  
+    game.counter--;
+    $("#counter-number").text(game.counter);
+    if (game.counter === 0) {
+      console.log("TIME UP");
+      game.timeUp();
+    }
+  },
 
-});
+  loadQuestion: function () {
 
-//Start Game//
-$(".questions").each(function play() {
-    randomQuestion = bank[Math.floor(Math.random() * bank.length)];
-    $("#question").text(randomQuestion.question);
-    document.getElementById("answer1").innerHTML = randomQuestion.possibleAnswers[0];
-    document.getElementById("answer2").innerHTML = randomQuestion.possibleAnswers[1];
-    document.getElementById("answer3").innerHTML = randomQuestion.possibleAnswers[2];
-    document.getElementById("answer4").innerHTML = randomQuestion.possibleAnswers[3];
-
-    console.log(bank);
-    console.log(randomQuestion);
-    answer();
-
-});
-
-function answer() {
-    $("#answer1").click(function () {
-        console.log(randomQuestion.possibleAnswers[0]);
-        if (randomQuestion.possibleAnswers[0] === randomQuestion.answer) {
-            console.log("win");
-            correctAnswer++;
-            $("#correct").text(correctAnswer);
-            reset();
-
-        } else {
-            console.log("lose");
-            wrongAnswer++;
-            $("#wrong").text(wrongAnswer);
-            reset();
-        }
-
-    });
-    $("#answer2").click(function () {
-        console.log(randomQuestion.possibleAnswers[1]);
-        if (randomQuestion.possibleAnswers[1] === randomQuestion.answer) {
-            console.log("win");
-            correctAnswer++;
-            $("#correct").text(correctAnswer);
-            reset();
-
-        } else {
-            console.log("lose");
-            wrongAnswer++;
-            $("#wrong").text(wrongAnswer);
-            reset();
-        }
-
-    });
-    $("#answer3").click(function () {
-        console.log(randomQuestion.possibleAnswers[2]);
-        if (randomQuestion.possibleAnswers[2] === randomQuestion.answer) {
-            console.log("win");
-            correctAnswer++;
-            $("#correct").text(correctAnswer);
-            reset();
-
-        } else {
-            console.log("lose");
-            wrongAnswer++;
-            $("#wrong").text(wrongAnswer);
-            reset();
-        }
-
-    });
-    $("#answer4").click(function () {
-        console.log(randomQuestion.possibleAnswers[3]);
-        if (randomQuestion.possibleAnswers[3] === randomQuestion.answer) {
-            console.log("win");
-            correctAnswer++;
-            $("#correct").text(correctAnswer);
-            reset();
-        } else {
-            console.log("lose");
-            wrongAnswer++;
-            $("#wrong").text(wrongAnswer);
-            reset();
-        }
-
-    });
-    winOrLose();
-    decrement();
+    timer = setInterval(game.countdown, 1000);
     
-};
-
-
-//timer//
-function decrement() {
-    time--;
-    $("#time").html(time)
-    if (time === 0) {
-        wrongAnswer++;
-        $("#wrong").text(wrongAnswer);
-        clearInterval(intervalTime);
-        reset();
-        winOrLose();
+    panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
+    console.log(this.questions);
+    for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
+      panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i] +
+        "'>" + questions[this.currentQuestion].answers[i] + "</button>");
     }
+  },
 
-};
+  nextQuestion: function () {
+    game.counter = countStartNumber;
+    $("#counter-number").text(game.counter);
+    game.currentQuestion++;
+    game.loadQuestion();
+  },
 
-//reset//
-function reset() {
-    time = 16;
-    timeClock = false;
-    $("#correct").text(correctAnswer);
-    $("#wrong").text(wrongAnswer);
-    if (!timeClock) {
-        intervalTime = setInterval(decrement, 1000);
-        timeClock = true;
-        console.log(timeClock);
+  timeUp: function () {
+
+    clearInterval(timer);
+
+    $("#counter-number").html(game.counter);
+
+    panel.html("<h2>Out of Time!</h2>");
+
+    if (game.currentQuestion === questions.length - 1) {
+      setTimeout(game.results, 3 * 1000);
+    } else {
+      setTimeout(game.nextQuestion, 3 * 1000);
     }
+  },
 
-    decrement();
-    randomQuestion = bank[Math.floor(Math.random() * bank.length)];
-    $("#question").text(randomQuestion.question);
-    document.getElementById("answer1").innerHTML = randomQuestion.possibleAnswers[0];
-    document.getElementById("answer2").innerHTML = randomQuestion.possibleAnswers[1];
-    document.getElementById("answer3").innerHTML = randomQuestion.possibleAnswers[2];
-    document.getElementById("answer4").innerHTML = randomQuestion.possibleAnswers[3];
+  lossResults: function() {
 
-    console.log(bank);
-    console.log(randomQuestion);
-    console.log("yeah")
+    clearInterval(timer);
 
-};
+    $("#counter-number").text(game.counter);
 
-function winOrLose() {
-    if (correctAnswer === 7) {
-        alert("Year 1 complete");
-        
-    } else if (wrongAnswer === 3) {
-        alert("Sorry Muggle");
-        
+    panel.append("<br><button id='start-over'>Start Over</button>");
+  },
+
+  winResults: function() {
+    
+    clearInterval(timer);
+
+    $("#counter-number").text(game.counter);
+
+    panel.append("<br><button id='yeartwo'>Year 2</button>");
+  },
+
+  clicked: function (e) {
+    clearInterval(timer);
+    if ($(e.target).attr("data-name") === questions[this.currentQuestion].correctAnswer) {
+      this.answeredCorrectly();
+    } else {
+      this.answeredIncorrectly();
     }
+  },
 
+  answeredIncorrectly: function () {
+
+    game.incorrect++;
+
+    clearInterval(timer);
+
+    panel.html("<h2>Nope!</h2>");
+
+    if (this.incorrect === 3) {
+      setTimeout(game.lossResults);      
+    } else {
+      setTimeout(game.nextQuestion, 3 * 1000);
+    }
+  },
+
+  answeredCorrectly: function () {
+
+    clearInterval(timer);
+
+    game.correct++;
+
+    panel.html("<h2>Correct!</h2>");
+
+    if (this.correct === 7) {
+      setTimeout(game.winResults);     
+    } else {
+      setTimeout(game.nextQuestion, 3 * 1000);
+    }
+  },
+
+  reset: function () {
+    this.currentQuestion = 0;
+    this.counter = countStartNumber;
+    this.correct = 0;
+    this.incorrect = 0;
+    this.loadQuestion();
+  }
 };
+
+// CLICK EVENTS
+
+$(document).on("click", "#start-over", "yeartwo" , function () {
+  game.reset();
+});
+
+$(document).on("click", ".answer-button", function (e) {
+  game.clicked(e);
+});
+
+$(document).on("click", "#start", function () {
+  $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+  game.loadQuestion();
+});
