@@ -103,9 +103,9 @@ var game = {
     panel.html("<h2>Out of Time!</h2>");
 
     if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, 3 * 1000);
+      setTimeout(game.results, 1000);
     } else {
-      setTimeout(game.nextQuestion, 3 * 1000);
+      setTimeout(game.nextQuestion, 1000);
     }
   },
 
@@ -147,7 +147,7 @@ var game = {
     if (this.incorrect === 3) {
       setTimeout(game.lossResults);      
     } else {
-      setTimeout(game.nextQuestion, 3 * 1000);
+      setTimeout(game.nextQuestion, 1000);
     }
   },
 
@@ -162,22 +162,25 @@ var game = {
     if (this.correct === 7) {
       setTimeout(game.winResults);     
     } else {
-      setTimeout(game.nextQuestion, 3 * 1000);
+      setTimeout(game.nextQuestion, 1000);
     }
   },
 
   reset: function () {
-    this.currentQuestion = 0;
-    this.counter = countStartNumber;
-    this.correct = 0;
-    this.incorrect = 0;
-    this.loadQuestion();
+    
+    clearInterval(timer);
+
+    $("#counter-number").text(game.counter);
+
+    panel.html("<button id='start'>Start</button>");
+    $("#timeKeeper").empty();   
+    
   }
 };
 
 // CLICK EVENTS
 
-$(document).on("click", "#start-over", "yeartwo" , function () {
+$(document).on("click", "#start-over", function () {
   game.reset();
 });
 
@@ -186,6 +189,10 @@ $(document).on("click", ".answer-button", function (e) {
 });
 
 $(document).on("click", "#start", function () {
-  $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+  $("#sub-wrapper").prepend("<h2 id='timeKeeper'>Time Remaining: <span id='counter-number'>20</span> Seconds</h2>");
   game.loadQuestion();
+});
+
+$(document).on("click", "#yeartwo" , function () {
+  panel.html("<h2>Coming Soon</h2>")
 });
