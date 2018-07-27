@@ -19,7 +19,7 @@ var questions = [{
   },
   {
     question: "Why does Uncle Vernon love Sundays?",
-    answers: ["Its the only day he can relax.", "Its the day he and his family(minus Harry) get to go out for tea.", "There is no mail.", "Harry goes to the neighbor's house to do chores."],
+    answers: ["Only day he can relax", "Can go out for tea", "There is no mail", "Harry is at neighbor's house"],
     correctAnswer: "There is no mail."
   },
   {
@@ -78,8 +78,11 @@ var game = {
   loadQuestion: function () {
 
     timer = setInterval(game.countdown, 1000);
+
+    $("#title").hide(); 
+    $("#subtitle").hide(); 
     
-    panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
+    panel.html("<h2 class='question'>" + questions[this.currentQuestion].question + "</h2>");
     console.log(this.questions);
     for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
       panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i] +
@@ -171,6 +174,9 @@ var game = {
     clearInterval(timer);
 
     $("#counter-number").text(game.counter);
+
+    $("#title").show(); 
+    $("#subtitle").show(); 
 
     panel.html("<button id='start'>Start</button>");
     $("#timeKeeper").empty();   

@@ -1,0 +1,71 @@
+/*General*/
+body{
+    background-image: url("../images/hogwartscrest.jpg");    
+}
+
+
+/*Home Page Container*/
+#wrapper{
+    background: rgba(7, 6, 6, 0.5);
+    position: absolute;
+    left: 450px;
+    top: 255px;     
+    width: 900px;
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+#title,
+#subtitle,
+#start{
+    position: relative;
+    top: 50px;
+}
+
+#title{
+    font-family: 'Germania One', cursive;
+    font-size: 125px;
+    color: rgb(194, 143, 16);
+}
+
+#subtitle{
+    font-family: 'Germania One', cursive;
+    font-size: 50px;
+    color: rgb(194, 143, 16);
+}
+
+#start{
+    position: relative;
+    top: 100px;
+    float: middle;
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border-color: black;
+    font-size: 35px;
+    font-family: 'Germania One', cursive;
+}
+
+/*Game Area*/
+h2,
+.question{
+    position: relative;
+    top: 40px;
+    font-family: 'Germania One', cursive;
+    font-size: 40px;
+    color: rgb(194, 143, 16); 
+}
+
+.answer-button{
+    position: relative;
+    top: 70px;
+    width: 300px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    border-color: rgb(194, 143, 16);
+    font-size: 25px;
+    font-family: 'Germania One', cursive;
+}
