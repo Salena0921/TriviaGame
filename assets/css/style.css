@@ -49,7 +49,7 @@ body{
 }
 
 /*Game Area*/
-h2,
+.playerNotice,
 .question{
     position: relative;
     top: 40px;
@@ -68,4 +68,12 @@ h2,
     border-color: rgb(194, 143, 16);
     font-size: 25px;
     font-family: 'Germania One', cursive;
+}
+
+#timeKeeper{
+    position: relative;
+    top: 40px;
+    font-family: 'Germania One', cursive;
+    font-size: 40px;
+    color: rgb(194, 143, 16); 
 }

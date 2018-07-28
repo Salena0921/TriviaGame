@@ -145,7 +145,7 @@ var game = {
 
     clearInterval(timer);
 
-    panel.html("<h2>Nope!</h2>");
+    panel.html("<h2 class='playerNotice'>Nope!</h2>");
 
     if (this.incorrect === 3) {
       setTimeout(game.lossResults);      
@@ -160,7 +160,7 @@ var game = {
 
     game.correct++;
 
-    panel.html("<h2>Correct!</h2>");
+    panel.html("<h2 class='playerNotice'>Correct!</h2>");
 
     if (this.correct === 7) {
       setTimeout(game.winResults);     
