@@ -35,7 +35,9 @@ body{
     color: rgb(194, 143, 16);
 }
 
-#start{
+#start,
+#yearTwo,
+#start-over{
     position: relative;
     top: 100px;
     float: middle;
@@ -50,7 +52,8 @@ body{
 
 /*Game Area*/
 .playerNotice,
-.question{
+.question,
+#comingSoon{
     position: relative;
     top: 40px;
     font-family: 'Germania One', cursive;

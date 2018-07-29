@@ -19,8 +19,8 @@ var questions = [{
   },
   {
     question: "Why does Uncle Vernon love Sundays?",
-    answers: ["Only day he can relax", "Can go out for tea", "There is no mail", "Harry is at neighbor's house"],
-    correctAnswer: "There is no mail."
+    answers: ["Only day he can relax", "Can go out for tea", "There is no mail", "Harry is at neighbors house"],
+    correctAnswer: "There is no mail"
   },
   {
     question: "When is Harry's birthday and how old is he when he starts Hogwarts?",
@@ -29,7 +29,7 @@ var questions = [{
   },
   {
     question: "What is the name of the pub Harry goes to with Hagrid in London?",
-    answers: ["Hog's Head Inn", "Three Broomsticks Inn", "Potions, Potions, Potions", "Leaky Cauldron"],
+    answers: ["Hogs Head Inn", "Three Broomsticks Inn", "Potions, Potions, Potions", "Leaky Cauldron"],
     correctAnswer: "Leaky Cauldron"
   },
   {
@@ -44,8 +44,8 @@ var questions = [{
   },
   {
     question: "What is the name of the train station and platform number do Hogwarts students use?",
-    answers: ["Hogsmeade Station, 9 3/4", "King's Cross Station, 9 3/4", "London Station, 9 3/4", "King's Cross Station, 9 1/4"],
-    correctAnswer: "King's Cross Station, 9 3/4"
+    answers: ["Hogsmeade Station, 9 3/4", "Kings Cross Station, 9 3/4", "London Station, 9 3/4", "Kings Cross Station, 9 1/4"],
+    correctAnswer: "Kings Cross Station, 9 3/4"
   },
   {
     question: "What has Neville Longbottom lost on the train?",
@@ -127,7 +127,7 @@ var game = {
 
     $("#counter-number").text(game.counter);
 
-    panel.append("<br><button id='yeartwo'>Year 2</button>");
+    panel.append("<br><button id='yearTwo'>Year 2</button>");
   },
 
   clicked: function (e) {
@@ -170,6 +170,8 @@ var game = {
   },
 
   reset: function () {
+
+    this.currentQuestion = 0;
     
     clearInterval(timer);
 
@@ -199,6 +201,6 @@ $(document).on("click", "#start", function () {
   game.loadQuestion();
 });
 
-$(document).on("click", "#yeartwo" , function () {
-  panel.html("<h2>Coming Soon</h2>")
+$(document).on("click", "#yearTwo" , function () {
+  panel.html("<h2 id='comingSoon'>Coming Soon</h2>")
 });
